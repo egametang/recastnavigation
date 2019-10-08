@@ -16,8 +16,6 @@ target_include_directories(DebugUtils PUBLIC
 
 target_link_libraries(DebugUtils
     Recast
-    Detour
-    DetourTileCache
 )
 
 set_target_properties(DebugUtils PROPERTIES

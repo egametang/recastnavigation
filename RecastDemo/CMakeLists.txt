@@ -13,9 +13,6 @@ include_directories(SYSTEM ${OPENGL_INCLUDE_DIR})
 include_directories(SYSTEM Contrib/fastlz)
 include_directories(SYSTEM Contrib)
 include_directories(../DebugUtils/Include)
-include_directories(../Detour/Include)
-include_directories(../DetourCrowd/Include)
-include_directories(../DetourTileCache/Include)
 include_directories(../Recast/Include)
 include_directories(Include)
 
@@ -35,8 +32,8 @@ if (WIN32)
     file(COPY "${SDL2_RUNTIME_LIBRARY}" DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 
-add_dependencies(RecastDemo DebugUtils Detour DetourCrowd DetourTileCache Recast)
-target_link_libraries(RecastDemo ${OPENGL_LIBRARIES} SDL2::SDL2main DebugUtils Detour DetourCrowd DetourTileCache Recast)
+add_dependencies(RecastDemo DebugUtils Recast)
+target_link_libraries(RecastDemo ${OPENGL_LIBRARIES} SDL2::SDL2main DebugUtils Recast)
 
 install(TARGETS RecastDemo
         RUNTIME DESTINATION bin
