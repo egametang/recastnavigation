@@ -54,56 +54,11 @@ project "DebugUtils"
 	kind "StaticLib"
 	includedirs { 
 		"../DebugUtils/Include",
-		"../Detour/Include",
-		"../DetourTileCache/Include",
 		"../Recast/Include"
 	}
 	files { 
 		"../DebugUtils/Include/*.h",
 		"../DebugUtils/Source/*.cpp"
-	}
-
-project "Detour"
-	language "C++"
-	kind "StaticLib"
-	includedirs { 
-		"../Detour/Include" 
-	}
-	files { 
-		"../Detour/Include/*.h", 
-		"../Detour/Source/*.cpp" 
-	}
-	-- linux library cflags and libs
-	configuration { "linux", "gmake" }
-		buildoptions { 
-			"-Wno-error=class-memaccess"
-		}
-
-
-project "DetourCrowd"
-	language "C++"
-	kind "StaticLib"
-	includedirs {
-		"../DetourCrowd/Include",
-		"../Detour/Include",
-		"../Recast/Include"
-	}
-	files {
-		"../DetourCrowd/Include/*.h",
-		"../DetourCrowd/Source/*.cpp"
-	}
-
-project "DetourTileCache"
-	language "C++"
-	kind "StaticLib"
-	includedirs {
-		"../DetourTileCache/Include",
-		"../Detour/Include",
-		"../Recast/Include"
-	}
-	files {
-		"../DetourTileCache/Include/*.h",
-		"../DetourTileCache/Source/*.cpp"
 	}
 
 project "Recast"
@@ -140,9 +95,6 @@ project "RecastDemo"
 	-- project dependencies
 	links { 
 		"DebugUtils",
-		"Detour",
-		"DetourCrowd",
-		"DetourTileCache",
 		"Recast"
 	}
 
@@ -201,9 +153,6 @@ project "Tests"
 
 	includedirs { 
 		"../DebugUtils/Include",
-		"../Detour/Include",
-		"../DetourCrowd/Include",
-		"../DetourTileCache/Include",
 		"../Recast/Include",
 		"../Recast/Source",
 		"../Tests/Recast",
@@ -215,16 +164,11 @@ project "Tests"
 		"../Tests/*.cpp",
 		"../Tests/Recast/*.h",
 		"../Tests/Recast/*.cpp",
-		"../Tests/Detour/*.h",
-		"../Tests/Detour/*.cpp",
 	}
 
 	-- project dependencies
 	links { 
 		"DebugUtils",
-		"Detour",
-		"DetourCrowd",
-		"DetourTileCache",
 		"Recast",
 	}
 
